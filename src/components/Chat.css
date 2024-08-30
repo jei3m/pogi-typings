@@ -55,7 +55,7 @@
   align-items: center; /* Center spinner vertically */
   justify-content: center; /* Center spinner horizontally */
   padding: 15px;
-  font-size: 18px;
+  font-size: 20px !important;
   border-radius: 10px !important;
   background-color: #007bff;
   color: white;
@@ -64,6 +64,7 @@
   transition: background-color 0.3s ease;
   white-space: nowrap;
   min-width: 60px;
+  max-width: 60px;
   height: 50px; /* Ensure consistent height */
   box-sizing: border-box; /* Ensure padding is included in the height */
 }
@@ -86,8 +87,8 @@
   border: 6px solid rgba(0, 0, 0, 0.1);
   border-left: 4px solid #fff;
   border-radius: 50%;
-  width: 2em;
-  height: 2em; /* Adjust height to match width */
+  width: 1.8em;
+  height: 1.8em; /* Adjust height to match width */
   animation: spin 1s linear infinite;
 }
 
@@ -110,9 +111,9 @@
 
 /* Placeholder text styles */
 .placeholder-text {
-  color: #999;
+  color: #808080;
   text-align: center;
-  font-style: italic;
+  font-style: bold;
 }
 
 /* Message styles */
@@ -132,7 +133,7 @@
   }
 
   .message-input {
-    font-size: 14px;
+    font-size: 16px;
     padding: 12px;
   }
 
@@ -148,12 +149,12 @@
   }
 
   .message-input {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
   }
 
   .search-button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
   }
 }
@@ -178,12 +179,12 @@
 .custom-button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
-
+  
 .footer {
-  background-color: #f8f9fa;
+  background-color: #fff;
   padding: 20px;
   text-align: center;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #c8c8c8;
   margin-top: 20px;
 }
 
