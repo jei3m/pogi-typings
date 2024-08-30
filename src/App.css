@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  background-color: #e4e4e4;
+}
+
+.Appnobg {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+}
+
+
+.Appcard {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+}
+
+button {
+  border: none;
+  margin: 0.5rem 0;
+  background-color: #3693f7; /* Blue button color */
+  padding: 0.75rem 1rem; /* Smaller padding */
+  border-radius: 8px; /* Slightly smaller border-radius */
+  cursor: pointer;
+  color: white; /* White text color for better contrast */
+  width: auto; /* Auto width to fit content */
+  align-self: center; /* Align to the left */
+}
+

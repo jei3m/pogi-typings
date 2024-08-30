@@ -1,0 +1,202 @@
+/* General container settings */
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #e4e4e4;
+  height: 100vh;
+  box-sizing: border-box;
+  width: 100%; /* Use full width */
+}
+
+/* Card container with responsive settings */
+.card-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 800px; /* Set a max-width for larger screens */
+  box-sizing: border-box;
+}
+
+/* Header styles */
+.header h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form container styles */
+.form-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Input field styles */
+.message-input {
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  margin-right: 10px;
+  outline: none;
+  height: 50px; /* Ensure consistent height */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+/* Search button styles */
+.search-button {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center spinner vertically */
+  justify-content: center; /* Center spinner horizontally */
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px !important;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  min-width: 60px;
+  height: 50px; /* Ensure consistent height */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+/* Disabled button styles */
+.search-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  align-items: center; /* Center spinner vertically */
+  justify-content: center; /* Center spinner horizontally */
+}
+
+/* Button hover effect */
+.search-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #fff;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em; /* Adjust height to match width */
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Output container styles */
+.output-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 150px;
+  border: 2px solid #ddd;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Placeholder text styles */
+.placeholder-text {
+  color: #999;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Message styles */
+.output-message {
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-container {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .message-input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .search-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .message-input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .search-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.downbutton {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 10px; /* Space between buttons */
+  padding: 10px; /* Space around buttons */
+}
+
+.custom-button {
+  background-color: #007bff; /* Blue color */
+  border: none; /* Remove default border */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding for button size */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.custom-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 0;
+  color: #6c757d;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
