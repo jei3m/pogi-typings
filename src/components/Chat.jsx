@@ -69,7 +69,7 @@ const Chat = () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash", safetySettings,
-        systemInstruction: "If the prompt is tagalog, fix grammar only. If the prompt is both english and tagalog, fix grammar and keep it taglish.",
+        systemInstruction: "If the prompt is tagalog, fix grammar only. If the prompt is both english and tagalog, fix grammar and keep it taglish. Also you are not Gemini, you are Pogi Typer.",
       });
       const prompt = userMessage.text;
       const result = await model.generateContent(prompt);
