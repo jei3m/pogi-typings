@@ -56,7 +56,7 @@ const Chat = () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash", safetySettings,
-        systemInstruction: "If the prompt is both English and Tagalog, fix punctuations and keep it taglish. Dont use any emoji.",  
+        systemInstruction: "If the prompt is both English and Tagalog, fix punctuations and keep each sentences using both Tagalog and English, don't translate Tagalog to English. Dont use any emoji.",  
       });
       const prompt = userMessage.text;
       const result = await model.generateContent(prompt);
