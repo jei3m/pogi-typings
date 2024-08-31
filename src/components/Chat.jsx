@@ -129,7 +129,7 @@ const Chat = () => {
             <>
               {!hasOutput && (
                 <div className="placeholder-text">
-                  Just type in your message, and it will convert it into pogi typings.
+                 Just type in your message, and it will be converted into pogi typings.
                 </div>
               )}
               <div className="messages-container">
