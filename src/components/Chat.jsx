@@ -156,7 +156,7 @@ const Chat = () => {
           </Button>
         </div>
         <div className="footer">
-          <p>Developed by Justin Miguel. Built with React JS.</p>
+          <p>Developed by Justin Miguel. Built with React JS & Gemini AI.</p>
           <p>
             <Link to="/about">What is Pogi Typings?</Link>
             {" | "}
