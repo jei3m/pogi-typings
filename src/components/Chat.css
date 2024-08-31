@@ -145,8 +145,6 @@
   justify-content: center;
 }
 
-
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .card-container {
@@ -227,4 +225,15 @@
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.custom-button:disabled {
+  background-color: #6c757d !important; /* Dark gray color when disabled */
+  border: #6c757d;
+  cursor: not-allowed; /* Show not-allowed cursor */
+  opacity: 0.65; /* Reduce opacity for a disabled look */
+}
+
+.custom-button:disabled:hover {
+  background-color: #6c757d; /* Keep dark gray on hover when disabled */
 }

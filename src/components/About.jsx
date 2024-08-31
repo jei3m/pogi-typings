@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function About() {
   return (
-<div style={{ textAlign: 'left', maxWidth:'800px', width:'80%' }}>
+<div style={{ textAlign: 'left', maxWidth:'800px', width:'90%' }}>
   <Card>
     <Card.Header>What is Pogi Typings?</Card.Header>
     <Card.Body>

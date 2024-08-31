@@ -119,17 +119,6 @@ const Chat = () => {
             value={userInput}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           />
-          {/* <Button
-            className="search-button"
-            onClick={sendMessage}
-            disabled={loading}
-          >
-            {loading ? (
-              <div className="loading-spinner"></div>
-            ) : (
-              <FontAwesomeIcon icon={faSearch} />
-            )}
-          </Button> */}
         </div>
         <div className="output-container">
           {loading ? (
@@ -162,7 +151,7 @@ const Chat = () => {
           )}
         </div>
         <div className="downbutton">
-          <Button className="custom-button" onClick={copyToClipboard}>
+          <Button className="custom-button" onClick={copyToClipboard} disabled={!hasOutput}>
             Copy <FontAwesomeIcon icon={faCopy} />  
           </Button>
         </div>
