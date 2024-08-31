@@ -56,8 +56,8 @@ const Chat = () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash", safetySettings,
-        systemInstruction: "Only correct punctuation, hyphenation, and spelling. Ensure proper Tagalog punctuation, hyphenation, and spelling, including the addition ' to shortened Tagalog words (e.g., 'yon', 'yan'). Also ensure correct usage of 'ng' and 'nang'. Do not translate Tagalog into English. Avoid using emojis."
-      });
+        systemInstruction: "Only correct punctuation, hyphenation, and spelling. Ensure proper Tagalog punctuation, hyphenation, and spelling, including the use of ' for shortened Tagalog words (e.g., 'yon', 'yan'). Also ensure correct usage of 'ng' and 'nang'. Do not translate Tagalog into English. Avoid using emojis. Maintain the Taglish context where applicable."
+        });
       const prompt = userMessage.text;
       const result = await model.generateContent(prompt);
       const response = result.response;
