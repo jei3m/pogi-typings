@@ -16,12 +16,19 @@
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 90%;
+  width: 100%;
   max-width: 800px; /* Set a max-width for larger screens */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
 }
 
 /* Header styles */
+.header {
+  width: 100%;
+}
+
 .header h2 {
   font-size: 24px;
   text-align: center;
@@ -33,7 +40,9 @@
 .form-container {
   display: flex;
   align-items: center;
+  justify-content: center; /* Center items horizontally */
   margin-bottom: 20px;
+  width: 100%;
 }
 
 /* Input field styles */
@@ -43,10 +52,11 @@
   font-size: 16px;
   border: 2px solid #ddd;
   border-radius: 10px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   outline: none;
   height: 50px; /* Ensure consistent height */
   box-sizing: border-box; /* Ensure padding is included in the height */
+  width: 100%; /*Added this as I removed search button */
 }
 
 /* Search button styles */
@@ -107,6 +117,10 @@
   border: 2px solid #ddd;
   position: relative;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  width: 100%;
 }
 
 /* Placeholder text styles */
@@ -120,7 +134,18 @@
 .output-message {
   color: #333;
   margin-top: 10px;
+  font-size: 18px;
 }
+
+/* Spinner container */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -160,6 +185,7 @@
 }
 
 .downbutton {
+  margin-top: 10px;
   display: flex;
   justify-content: center; /* Center buttons horizontally */
   gap: 10px; /* Space between buttons */
@@ -185,7 +211,8 @@
   padding: 20px;
   text-align: center;
   border-top: 1px solid #c8c8c8;
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 90%;
 }
 
 .footer p {

@@ -1,41 +1,28 @@
 import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
 import "react-toastify/dist/ReactToastify.css";
 import "./Chat.css";
-import Card from "react-bootstrap/Card"
+import Card from "react-bootstrap/Card";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import { Link } from 'react-router-dom';
 
-
 const Chat = () => {
 
   const safetySettings = [
-    {
-      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-      threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-      threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
-    {
-      category:  HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-      threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
-    {
-      category:  HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-      threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
+    { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+    { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
+    { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE },
+    { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
   ];
 
   const [messages, setMessages] = useState([]);
-  const [userInput, setUserInput] = useState(""); 
+  const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [hasOutput, setHasOutput] = useState(false);
 
@@ -69,7 +56,7 @@ const Chat = () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash", safetySettings,
-        systemInstruction: "If the prompt is tagalog, fix grammar only. If the prompt is both english and tagalog, fix grammar and keep it taglish. Also you are not Gemini, you are Pogi Typer.",
+        systemInstruction: "If the prompt is both English and Tagalog, fix punctuations and keep it taglish. Dont use emoji.",  
       });
       const prompt = userMessage.text;
       const result = await model.generateContent(prompt);
@@ -87,6 +74,15 @@ const Chat = () => {
       setLoading(false);
       setUserInput("");
     }
+  };
+
+  const copyToClipboard = () => {
+    const outputText = messages.filter(msg => !msg.user).map(msg => msg.text).join('\n');
+    navigator.clipboard.writeText(outputText).then(() => {
+      toast.success("Copied to clipboard!");
+    }).catch(err => {
+      toast.error("Failed to copy!");
+    });
   };
 
   const goBack = () => {
@@ -123,7 +119,7 @@ const Chat = () => {
             value={userInput}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           />
-          <Button
+          {/* <Button
             className="search-button"
             onClick={sendMessage}
             disabled={loading}
@@ -133,47 +129,54 @@ const Chat = () => {
             ) : (
               <FontAwesomeIcon icon={faSearch} />
             )}
-          </Button>
+          </Button> */}
         </div>
         <div className="output-container">
-          {!hasOutput && (
-            <div className="placeholder-text">
-              Just type in your message, and it will convert it into pogi typings.
+          {loading ? (
+            <div className="spinner-container">
+              <div className="loading-spinner"></div>
             </div>
-          )}
-          <div className="messages-container">
-            {messages.filter(msg => !msg.user).map((msg, index) => (
-              <div
-                key={index}
-                className={`message-item ${msg.user ? 'user-message' : 'ai-message'}`}
-              >
-                {msg.user ? (
-                  <div className="user-avatar"></div>
-                ) : (
-                  <div className="ai-avatar"></div>
-                )}
-                <div className="message-content" dangerouslySetInnerHTML={{ __html: sanitizeText(msg.text) }} />
+          ) : (
+            <>
+              {!hasOutput && (
+                <div className="placeholder-text">
+                  Just type in your message, and it will convert it into pogi typings.
+                </div>
+              )}
+              <div className="messages-container">
+                {messages.filter(msg => !msg.user).map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`message-item ${msg.user ? 'user-message' : 'ai-message'}`}
+                  >
+                    {msg.user ? (
+                      <div className="user-avatar"></div>
+                    ) : (
+                      <div className="ai-avatar"></div>
+                    )}
+                    <div className="message-content" dangerouslySetInnerHTML={{ __html: sanitizeText(msg.text) }} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
-        {/* <div className="downbutton">
-          <Button className="custom-button">Logout</Button>
-        </div> */}
+        <div className="downbutton">
+          <Button className="custom-button" onClick={copyToClipboard}>
+            Copy <FontAwesomeIcon icon={faCopy} />  
+          </Button>
+        </div>
         <div className="footer">
-  <p>Developed by Justin Miguel. Built with React JS.</p>
-  <p>
-    <Link  to="/about">
-      What is Pogi Typings?
-    </Link>
-    {" | "}
-    <Link  to="https://github.com/jei3m" target="_blank" rel="noopener noreferrer">
-      My Github Repo
-    </Link>
-  </p>
-</div>
+          <p>Developed by Justin Miguel. Built with React JS.</p>
+          <p>
+            <Link to="/about">What is Pogi Typings?</Link>
+            {" | "}
+            <Link to="https://github.com/jei3m" target="_blank" rel="noopener noreferrer">
+              My Github Repo
+            </Link>
+          </p>
+        </div>
       </div>
-
     </div>
   );
 };
