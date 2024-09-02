@@ -24,7 +24,13 @@ To get started with the Pogi Typings Generator, follow these steps:
 3. Install the dependencies:
    ```bash
    npm install
-4. Start the development server:
+4. Set Up Environment Variables
+    Create a `.env` file in the root directory and add your Gemini AI credentials.
+    ```env
+    REACT_APP_GEMINI_API_KEY=your_gemini_api_key
+    ```
+
+5. Start the development server:
    ```bash
    npm start
 
