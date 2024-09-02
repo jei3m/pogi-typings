@@ -27,3 +27,6 @@ To get started with the Pogi Typings Generator, follow these steps:
 4. Start the development server:
    ```bash
    npm start
+
+## Usage
+Once the development server is running, open your browser and navigate to http://localhost:3000. You can start typing text in either English or Tagalog, and the integrated Gemini AI will automatically correct any grammar or punctuation errors.
