@@ -4,9 +4,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Chat from './components/Chat';
 import About from './components/About';
 
-
-
-
 function App() {
   return (
     <div className="App">
