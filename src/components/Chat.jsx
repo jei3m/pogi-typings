@@ -85,25 +85,6 @@ const Chat = () => {
     });
   };
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
-  const handleDonate = () => {
-    // Handle donate button click
-    console.log('Donate button clicked');
-  };
-
-  const handleWhatIsPogiTypings = () => {
-    // Handle "What is pogi typings" button click
-    console.log('What is pogi typings button clicked');
-  };
-
-  const handleLogout = () => {
-    // Handle logout button click
-    console.log('Logout button clicked');
-  };
-
   return (
     <div className="chat-container">
       <ToastContainer />
