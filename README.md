@@ -1,5 +1,8 @@
 # Pogi Typings Generator
 
+![image](https://github.com/user-attachments/assets/f12c1d33-9781-4094-9531-199d4df59cd3)
+
+
 **Pogi Typings Generator** is a simple website created using React JS, integrated with Gemini AI for grammar correction and punctuation. This project was developed as an experiment to explore and test the capabilities of the AI's system instructions.
 
 ## Features
